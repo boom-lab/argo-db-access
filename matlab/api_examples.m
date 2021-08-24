@@ -15,18 +15,18 @@
 % Output fields example:
     % 'fields=SENSORS,SENSOR_SERIAL_NO'
     
-%Output all metadata fields for one float
-[deployment_meta_all, sensors_all] = get_deployment_metadata('PLATFORM_NUMBER=1902303&PLATFORM_TYPE=NAVIS_EBR');
+%% Output all metadata fields for one float
+[deployment_meta_all, sensors_all] = get_metadata('1902303');
 
-%Only output the following fields for one float
-deployment_fields = 'AOML_ID,ADD_DATE,sensors'; %always need 'sensors' here if you want sensor data
-sensor_fields = 'SENSOR,SENSOR_MAKER';
-[deployment_meta, sensors] = get_deployment_metadata('PLATFORM_NUMBER=1902303&PLATFORM_TYPE=NAVIS_EBR', deployment_fields, sensor_fields);
+%% Only output the following fields for one float
+dep_fields = 'AOML_ID,ADD_DATE,sensors'; %always need 'sensors' here if you want sensor data
+sens_fields = 'SENSOR,SENSOR_MAKER';
+[deployment_meta, sensors] = get_deployment_metadata('1902303', 'deployment_fields',dep_fields,'sensor_fields', sens_fields);
 
 %Complex query and output only select fields
-deployment_fields = 'AOML_ID,ADD_DATE,ROM_VERSION';
-sensor_fields = '';
-[deployment_meta_2019, sensors_2019] = get_deployment_metadata('LAUNCH_DATE__gt=2019-01-01T00:00:00Z&LAUNCH_DATE__lt=2020-01-01T00:00:00Z', deployment_fields, sensor_fields);
+dep_fields = 'AOML_ID,ADD_DATE,ROM_VERSION';
+sens_fields = '';
+[deployment_meta_2019, sensors_2019] = get_deployment_metadata('LAUNCH_DATE__gt=2019-01-01T00:00:00Z&LAUNCH_DATE__lt=2020-01-01T00:00:00Z','deployment_fields',dep_fields,'sensor_fields', sens_fields);
 
 
 %% Sensor API
