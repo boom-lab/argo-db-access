@@ -14,6 +14,9 @@ function [deployment_meta, sensors] = get_deployment_metadata(query, deployment_
     if (exist('deployment_fields','var') == 1) && (exist('sensor_fields','var') == 1)
         api_call = sprintf('%sapi/deployment_metadata?%s&deployment_fields=%s&sensor_fields=%s', ...
             WHOI_domain, query, deployment_fields, sensor_fields);
+    elseif (exist('deployment_fields','var') == 1)
+        api_call = sprintf('%sapi/deployment_metadata?%s&deployment_fields=%s', ...
+            WHOI_domain, query, deployment_fields);
     else
         api_call = sprintf('%sapi/deployment_metadata?%s', ...
             WHOI_domain, query);       
