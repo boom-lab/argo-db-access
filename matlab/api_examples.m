@@ -4,8 +4,10 @@
 % deployment_fields = string of output deployment table fields
 % sensor_fields = string of output sensor table fields
 
-% Base query example for one float: 'PLATFORM_NUMBER=1902303&PLATFORM_TYPE=NAVIS_EBR'
-% Add additional filter parameters after adding '&'
+% Base query example for one float:
+% 'PLATFORM_NUMBER=1902303' or
+% 'FLOAT_SERIAL_NUMBER=1203&PLATFORM_TYPE=NAVIS_EBR'
+% Add additional filter parameters after adding '&' and the field name
     % Filter options
     % less than: '__lt'
     % greater than: '__gt'
@@ -18,7 +20,7 @@
 %% Output all metadata fields for one float
 [deployment_meta_all, sensors_all] = get_deployment_metadata('1902303');
 
-%% Only output the following fields for one float
+% Only output the following fields for one float
 dep_fields = 'AOML_ID,ADD_DATE,sensors'; %always need 'sensors' here if you want sensor data
 sens_fields = 'SENSOR,SENSOR_MAKER';
 [deployment_meta, sensors] = get_deployment_metadata('1902303', 'deployment_fields',dep_fields,'sensor_fields', sens_fields);
