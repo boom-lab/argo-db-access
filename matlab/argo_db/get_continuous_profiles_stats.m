@@ -1,15 +1,8 @@
-function data = get_continuous_profiles_stats(PLATFORM_NUMBER)
-    %%   
-    WHOI_domain = 'https://db.whoifloatgroup.org/';
+function [continuous_data,api_call,status] = get_continuous_profiles_stats(PLATFORM_NUMBER)
+%% Summary statistics for continuous sampling portion of cycle
 
-    request = matlab.net.http.RequestMessage();
-    request.Method = 'GET';
-    api_call = sprintf('%sapi/continuous_profile_stats?PLATFORM_NUMBER=%s', ...
-        WHOI_domain, PLATFORM_NUMBER);
-    response = request.send( api_call );
+PLATFORM_NUMBER = num2str(PLATFORM_NUMBER);
+api_call = ['continuous_profile_stats?PLATFORM_NUMBER=',PLATFORM_NUMBER];
+[data,api_call,status] = api_request(api_call);
+continuous_data = struct2table(data);
 
-    if response.StatusCode == 200
-        display(response.Body.Data);
-        data = struct2table(response.Body.Data);
-    end
-end
