@@ -1,10 +1,10 @@
 function [deployment_meta, sensors, api_call,status] = get_deployment_metadata(filt,varargin)
 % GET_DEPLOYMENT_METADATA Retrieve deployment metadata by float WMO number
-% 
+%
 % Required input
 % ------------------
 % filt: either a WMO number or string query
-% 
+%
 % Optional Name,Value pairs
 % ------------------
 % deployment_fields
@@ -55,6 +55,3 @@ if isfield(deployment_meta,'sensors')
 else
     sensors = '';
 end
-
-
-
