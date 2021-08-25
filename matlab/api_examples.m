@@ -16,7 +16,7 @@
     % 'fields=SENSORS,SENSOR_SERIAL_NO'
     
 %% Output all metadata fields for one float
-[deployment_meta_all, sensors_all] = get_metadata('1902303');
+[deployment_meta_all, sensors_all] = get_deployment_metadata('1902303');
 
 %% Only output the following fields for one float
 dep_fields = 'AOML_ID,ADD_DATE,sensors'; %always need 'sensors' here if you want sensor data
