@@ -2,11 +2,11 @@
 
 Matlab and Python tools are provided for access to WHOI float metadata
 
-The following API access points are supported:
-https://db.whoifloatgroup.org/api/deployment_metadata
-https://db.whoifloatgroup.org/api/sensor_metadata
-https://db.whoifloatgroup.org/continuous_profile_stats
-https://db.whoifloatgroup.org/discrete_profile_stats
+The following API access points are supported:<br>
+https://db.whoifloatgroup.org/api/deployment_metadata<br>
+https://db.whoifloatgroup.org/api/sensor_metadata<br>
+https://db.whoifloatgroup.org/continuous_profile_stats<br>
+https://db.whoifloatgroup.org/discrete_profile_stats<br>
 https://db.whoifloatgroup.org/api/cycle_meta_get
 
 #### Repository Structure
