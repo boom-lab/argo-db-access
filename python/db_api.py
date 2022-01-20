@@ -18,7 +18,10 @@ def get_deployment_meta(parameters):
 
 #-------------Environment Data ---------------------------------------------#
 def get_discrete_one_float(PLATFORM_NUMBER, output_fields):
-    
+    """Requests all discrete data for one float
+    PLATFORM_NUMBER = string, WMO number
+    output_fields = string, comma seperated field names to output. See bgc-database django application for field names"""
+
     response = requests.get(BASE_URL+"/api/discrete_data_get", headers=headers, 
         params={"DEPLOYMENT__PLATFORM_NUMBER":PLATFORM_NUMBER, "output_fields":output_fields})
 
@@ -27,7 +30,11 @@ def get_discrete_one_float(PLATFORM_NUMBER, output_fields):
     raise Exception('ERROR: ', response.status_code)
 
 def get_discrete_one_profile(PROFILE_ID, output_fields):
-    
+    """Requests discrete data of one profile
+    PROFILE_ID = string, in the format WWWWW.PPP where W is the WMO number and P is the cycle
+    output_fields = string, comma seperated field names to output. See bgc-database django application for field names
+    returns pandas dataframe"""
+
     response = requests.get(BASE_URL+"/api/discrete_data_get", headers=headers, 
         params={"PROFILE_ID":PROFILE_ID, "output_fields":output_fields})
 
@@ -36,7 +43,11 @@ def get_discrete_one_profile(PROFILE_ID, output_fields):
     raise Exception('ERROR: ', response.status_code)
 
 def get_continuous_one_float(PLATFORM_NUMBER, output_fields):
-    
+    """Requests all continuous data for one float
+    PLATFORM_NUMBER = string, WMO number
+    output_fields = string, comma seperated field names to output. See bgc-database django application for field names
+    returns pandas dataframe"""   
+
     response = requests.get(BASE_URL+"/api/continuous_data_get", headers=headers, 
         params={"DEPLOYMENT__PLATFORM_NUMBER":PLATFORM_NUMBER, "output_fields":output_fields})
 
@@ -45,6 +56,10 @@ def get_continuous_one_float(PLATFORM_NUMBER, output_fields):
     raise Exception('ERROR: ', response.status_code)
 
 def get_continuous_one_profile(PROFILE_ID, output_fields):
+    """Requests continuous data of one profile
+    PROFILE_ID = string, in the format WWWWW.PPP where W is the WMO number and P is the cycle
+    output_fields = string, comma seperated field names to output. See bgc-database django application for field names
+    returns pandas dataframe"""  
     
     response = requests.get(BASE_URL+"/api/continuous_data_get", headers=headers, 
         params={"PROFILE_ID":PROFILE_ID, "output_fields":output_fields})
